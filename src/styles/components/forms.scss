@@ -1,0 +1,10 @@
+.input-field {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--color-gray-50);
+  transition: border 0.25s ease;
+
+  &:focus {
+    outline: none;
+    border: 1px solid var(--color-gray-90);
+  }
+}
