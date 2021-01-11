@@ -1,49 +1,7 @@
 {
-  "total": 0,
-  "buyer": [
-    {
-      "address": "Cra 3 Calle 22",
-      "apto": "Casa",
-      "city": "Cartago",
-      "country": "Colombia",
-      "email": "davidarias.vip@gmail.com",
-      "name": "Luis David Arias Manjarrez",
-      "phone": "3164463763",
-      "state": "Valle del Cauca",
-      "zipcode": "762022"
-    }
-  ],
+  "buyer": [],
   "orders": [],
-  "cart": [
-    {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "id": "1",
-      "image": "https://arepa.s3.amazonaws.com/camiseta.png",
-      "price": 25,
-      "title": "Camiseta"
-    },
-    {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "id": "3",
-      "image": "https://arepa.s3.amazonaws.com/mug.png",
-      "price": 10,
-      "title": "Mug"
-    },
-    {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "id": "4",
-      "image": "https://arepa.s3.amazonaws.com/pin.png",
-      "price": 4,
-      "title": "Pin"
-    },
-    {
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-      "id": "5",
-      "image": "https://arepa.s3.amazonaws.com/stickers1.png",
-      "price": 2,
-      "title": "Stickers"
-    }
-  ],
+  "cart": [],
   "products": [
     {
       "id": "1",

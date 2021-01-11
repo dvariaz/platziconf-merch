@@ -19,7 +19,7 @@ export default function Product({ product, handleAddToCart }) {
         <button
           onClick={() => handleAddToCart(product)}
           type="button"
-          className="btn-primary"
+          className="btn-primary w-full"
         >
           Comprar
         </button>
