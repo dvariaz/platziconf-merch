@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const Dotenv = require('dotenv-webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const tailwindcss = require('tailwindcss');
@@ -90,6 +91,7 @@ module.exports = {
     ].filter(Boolean),
   },
   plugins: [
+    new Dotenv(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: './index.html',

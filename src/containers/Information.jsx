@@ -9,7 +9,7 @@ import AppContext from '../context/AppContext';
 
 export default function Information() {
   const history = useHistory();
-  const { state } = useContext(AppContext);
+  const { state, addToBuyer } = useContext(AppContext);
   const { register, handleSubmit, watch, errors } = useForm();
 
   const { cart } = state;
@@ -17,8 +17,8 @@ export default function Information() {
   const onSubmit = (data) => {
     console.log(data);
     const buyer = data;
-    // addToBuyer(buyer);
-    // history.push('/checkout/success');
+    addToBuyer(buyer);
+    history.push('/checkout/payment');
   };
 
   return (
@@ -53,7 +53,7 @@ export default function Information() {
           <input
             type="text"
             placeholder="Casa/Apartamento"
-            name="name"
+            name="apto"
             autoComplete="off"
             className="input-field"
             ref={register}
@@ -100,7 +100,9 @@ export default function Information() {
           />
           <div className="flex justify-between py-4">
             <Link to="/checkout">Regresar</Link>
-            <button type="submit">Pagar</button>
+            <button type="submit" className="btn-primary w-auto">
+              Pagar
+            </button>
           </div>
         </form>
       </div>

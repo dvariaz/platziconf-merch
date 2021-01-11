@@ -7,14 +7,14 @@ import '../styles/components/buttons.scss';
 //Context
 import AppContext from '../context/AppContext';
 
+//Utilidades
+import { calculateTotal } from '../utils/shoppingCart';
+
 export default function Checkout() {
   const { state, removeFromCart } = useContext(AppContext);
   const { cart } = state;
 
-  const total = cart.reduce(
-    (accumulator, current) => accumulator + current.price,
-    0
-  );
+  const total = calculateTotal(cart);
 
   return (
     <div>
