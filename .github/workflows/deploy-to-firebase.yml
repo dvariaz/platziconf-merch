@@ -1,12 +1,5 @@
 name: Build and Deploy
 on: [push]
-env:
-  PP_SANDBOX_ACCOUNT: ${{ secrets.PP_SANDBOX_ACCOUNT }}
-  PP_ACCESS_TOKEN: ${{ secrets.PP_ACCESS_TOKEN }}
-  PP_CLIENT_ID: ${{ secrets.PP_CLIENT_ID }}
-  PP_SECRET: ${{ secrets.PP_SECRET }}
-  MQ_CONSUMER_KEY: ${{ secrets.MQ_CONSUMER_KEY }}
-  MQ_CONSUMER_SECRET: ${{ secrets.MQ_CONSUMER_SECRET }}
 jobs:
   build:
     name: Build
@@ -41,3 +34,9 @@ jobs:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+          PP_SANDBOX_ACCOUNT: ${{ secrets.PP_SANDBOX_ACCOUNT }}
+          PP_ACCESS_TOKEN: ${{ secrets.PP_ACCESS_TOKEN }}
+          PP_CLIENT_ID: ${{ secrets.PP_CLIENT_ID }}
+          PP_SECRET: ${{ secrets.PP_SECRET }}
+          MQ_CONSUMER_KEY: ${{ secrets.MQ_CONSUMER_KEY }}
+          MQ_CONSUMER_SECRET: ${{ secrets.MQ_CONSUMER_SECRET }}
