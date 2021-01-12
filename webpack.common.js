@@ -1,13 +1,8 @@
 const path = require('path');
-const webpack = require('webpack');
-const Dotenv = require('dotenv-webpack');
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const tailwindcss = require('tailwindcss');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-
-const isDevelopment = process.env.NODE_ENV !== 'production';
 
 const CSSModuleLoader = {
   loader: 'css-loader',
@@ -43,7 +38,6 @@ module.exports = {
     filename: 'bundle.js',
     publicPath: '/',
   },
-  mode: isDevelopment ? 'development' : 'production',
   resolve: {
     extensions: ['.js', '.jsx'],
   },
@@ -54,11 +48,6 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          options: {
-            plugins: [
-              isDevelopment && require.resolve('react-refresh/babel'),
-            ].filter(Boolean),
-          },
         },
       },
       {
@@ -91,9 +80,6 @@ module.exports = {
     ].filter(Boolean),
   },
   plugins: [
-    new Dotenv({
-      path: path.resolve(__dirname, './.env'),
-    }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: './index.html',
@@ -101,15 +87,5 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: 'assets/[name].css',
     }),
-    isDevelopment && new webpack.HotModuleReplacementPlugin(),
-    isDevelopment && new ReactRefreshWebpackPlugin(),
   ].filter(Boolean),
-  devServer: {
-    hot: true,
-    contentBase: path.join(__dirname, 'build'),
-    compress: true,
-    historyApiFallback: true,
-    port: 3005,
-    open: false,
-  },
 };
