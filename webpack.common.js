@@ -1,4 +1,5 @@
 const path = require('path');
+const Dotenv = require('dotenv-webpack');
 const autoprefixer = require('autoprefixer');
 const tailwindcss = require('tailwindcss');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -80,6 +81,9 @@ module.exports = {
     ].filter(Boolean),
   },
   plugins: [
+    new Dotenv({
+      path: path.resolve(__dirname, './.env'),
+    }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
       filename: './index.html',
