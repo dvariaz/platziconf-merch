@@ -28,15 +28,13 @@ jobs:
         with:
           name: build
           path: build
+      - name: Set environment variables
+        run: |
+          touch .env
+          echo PP_SANDBOX_ACCOUNT=${{ secrets.PP_SANDBOX_ACCOUNT }} config.PP_ACCESS_TOKEN=${{ secrets.PP_ACCESS_TOKEN }} config.PP_CLIENT_ID=${{ secrets.PP_CLIENT_ID }} config.PP_SECRET=${{ secrets.PP_SECRET }} config.MQ_CONSUMER_KEY=${{ secrets.MQ_CONSUMER_KEY }} config.MQ_CONSUMER_SECRET=${{ secrets.MQ_CONSUMER_SECRET }} >> .env
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
           args: deploy --only hosting
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          PP_SANDBOX_ACCOUNT: ${{ secrets.PP_SANDBOX_ACCOUNT }}
-          PP_ACCESS_TOKEN: ${{ secrets.PP_ACCESS_TOKEN }}
-          PP_CLIENT_ID: ${{ secrets.PP_CLIENT_ID }}
-          PP_SECRET: ${{ secrets.PP_SECRET }}
-          MQ_CONSUMER_KEY: ${{ secrets.MQ_CONSUMER_KEY }}
-          MQ_CONSUMER_SECRET: ${{ secrets.MQ_CONSUMER_SECRET }}
